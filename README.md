@@ -79,3 +79,7 @@ install.packages("reshape2")
 
 This course is very ``hands on.'' I recommend that participants who are not familiar with R or RStudio work through some of the excellent and free online beginner tutorials for R/RStudio. The following link is a great place to start: 
 https://support.rstudio.com/hc/en-us/articles/201141096-Getting-Started-with-R
+
+## Other Resources
+
+* Introduction to Statistical Learning: http://www-bcf.usc.edu/~gareth/ISL/
