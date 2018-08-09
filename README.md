@@ -10,6 +10,7 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 
 * R and RStudio basics
   * RStudio IDE
+  * Debugging
   * R Markdown
 * R data structures
   * Vectors
@@ -66,7 +67,7 @@ This CQS Summer Institute course provides an introduction and overview of the mo
   * Multiple degree-of-freedom tests
 * Bootstrap
 
-## Software Installation
+## Background and Software Installation
 
 This course requires the use of RStudio. This software is open source and freely available for download and installation on all operating systems. See https://www.rstudio.org/
 
@@ -76,4 +77,5 @@ We will additionally make use of several freely available add-on packages for R,
 install.packages("reshape2")
 ```
 
-
+This course is very ``hands on.'' I recommend that participants who are not familiar with R or RStudio work through some of the excellent and free online beginner tutorials for R/RStudio. The following link is a great place to start: 
+https://support.rstudio.com/hc/en-us/articles/201141096-Getting-Started-with-R
