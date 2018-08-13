@@ -10,19 +10,19 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 
 * R and RStudio basics
   * RStudio IDE
-  * Debugging
-  * R Markdown
 * R data structures
   * Vectors
   * Lists
   * Data frames
 * Importing and exporting data
+  * Simulating data
   * Flat files (e.g., CSV)
   * RData files
   * External databases
-* Joining, reshaping, and aggregation
+* Data manipulation
   * `reshape`
   * `melt` and `cast`
+  * `subset`
 
 ### Day 2: Supervised Learning Part 1
 
