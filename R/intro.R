@@ -28,7 +28,7 @@ help(matrix)
 help("matrix")
 example("matrix")
 args("matrix")
-help.search("matrix")
+help.search("matr")
 x=matrix(data=c(1,2,3,4), nrow=2, ncol=2)
 x
 x=matrix(c(1,2,3,4),2,2)
@@ -50,7 +50,7 @@ sd(y)
 ## Character vectors
 
 c("a", "b", "c")
-c('a', 'b', 'c')
+m <- c('a', 'b', 'c')
 letters[1:3]
 paste('group', letters[1:3])
 
@@ -116,7 +116,8 @@ while(i >= 1) {
 ## Functions
 
 f <- function(x) {
-  x^2
+  x <- x+1
+  return(x^2)
 }
 f
 f(2)
@@ -195,3 +196,4 @@ persp(x,y,fa,theta=30,phi=40)
 ##    function to add the second histogram to the first for
 ##    for comparison.
 
+R.version

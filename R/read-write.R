@@ -4,8 +4,8 @@
 
 ## Create your own data (simulate)
 set.seed(42)
-dat <- data.frame(group   = rep(letters[1:3], c(10,10,10)),
-                  endpoit = rnorm(30))
+dat <- data.frame(group    = rep(letters[1:3], c(10,10,10)),
+                  endpoint = rnorm(30))
 View(dat)
 
 ## R built-in data
@@ -31,7 +31,7 @@ download.file("http://www-bcf.usc.edu/~gareth/ISL/Auto.data", "Auto.data")
 
 Auto=read.table("Auto.data")
 fix(Auto)
-Auto=read.table("Auto.data",header=T,na.strings="?")
+Auto=read.table("Auto.data",header=TRUE,na.strings="?")
 dim(Auto)
 Auto[1:4,]
 names(Auto)
