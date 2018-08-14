@@ -35,7 +35,7 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 * Regression methods
   * Modeling associations
   * Model selection and shrinkage
-* Decision trees 
+* Classification and regression trees 
 * Random forests (bagging)
 
 ### Day 3: Supervised Learning Part 2
