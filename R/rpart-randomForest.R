@@ -68,7 +68,7 @@ cvrpart <- function(minsplit, flds=pro_flds) {
   for(tst_idx in 1:5) {
     pro_trn <- prostate[-flds[[tst_idx]],]
     pro_tst <- prostate[ flds[[tst_idx]],]
-    tree_fit <- rpart(lcavol ~ ., data=prostate,
+    tree_fit <- rpart(lcavol ~ ., data=pro_trn,
                       control=rpart.control(minsplit=minsplit, minbucket=1))
     pre_tst <- predict(tree_fit, pro_tst)
     cverr[tst_idx] <- mean((pro_tst$lcavol - pre_tst)^2)
@@ -102,6 +102,47 @@ print(ozone.rf)
 round(importance(ozone.rf), 2)
 varImpPlot(ozone.rf)
 ozone.rf$mse
+
+## Use RF to predict the onset of diabetes in female Pima Indians from 
+## medical record data.
+## Binary Classification
+## Dimensions: 768 instances, 9 attributes
+## Inputs: Numeric
+## Output: Categorical, 2 class labels
+library('mlbench')
+data('PimaIndiansDiabetes')
+help('PimaIndiansDiabetes')
+diab.rf <- randomForest(diabetes ~ ., data=PimaIndiansDiabetes,
+                        mtry=3, importance=TRUE, na.action=na.omit)
+varImpPlot(ozone.rf)
+
+## 5-fold CV for diabetes data
+set.seed(1985)
+dia_flds  <- createFolds(PimaIndiansDiabetes$diabetes, k=10)
+cvrf <- function(mtry, flds=dia_flds) {
+  cverr <- rep(NA, 5)
+  for(tst_idx in 1:5) {
+    dia_trn <- PimaIndiansDiabetes[-flds[[tst_idx]],]
+    dia_tst <- PimaIndiansDiabetes[ flds[[tst_idx]],]
+    diab.rf <- randomForest(diabetes ~ ., data=dia_trn,
+                        mtry=mtry, importance=TRUE, na.action=na.omit)
+    pre_tst <- predict(diab.rf, dia_tst)
+    cverr[tst_idx] <- mean(dia_tst$diabetes != pre_tst)
+  }
+  return(cverr)
+}
+
+
+## Compute 5-fold CV for randomForest, mtry = 1:5
+cverrs <- sapply(1:5, cvrf)
+cverrs_mean <- apply(cverrs, 2, mean)
+cverrs_sd   <- apply(cverrs, 2, sd)
+plot(x=1:5, y=cverrs_mean, 
+     ylim=range(cverrs),
+     xlab="mtry", ylab="CV Estimate of Test Error")
+segments(x0=1:5, x1=1:5,
+         y0=cverrs_mean-cverrs_sd,
+         y1=cverrs_mean+cverrs_sd)
 
 ########################################################
 ## Classification/regression trees and random forest lab
