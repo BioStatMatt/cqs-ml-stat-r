@@ -36,14 +36,14 @@ plot_inc_data <- function(fun = function(x1, x2) x1*x2*NA, grid=15, dat = inc) {
 ## Least squares regression: 'lm' function
 
 ## additive linear
-ls_fit <- lm(Income ~ Education + Seniority, data=inc)
+ls_fit <- lm(Income ~ Education * Seniority, data=inc)
 ls_fun <- function(x1, x2, fit=ls_fit) 
   predict(fit, data.frame(Education=x1, Seniority=x2))
 plot_inc_data(ls_fun)
 
 ## additive splines
 library('splines')
-ls_fit <- lm(Income ~ ns(Education,3) + ns(Seniority,3), data=inc)
+ls_fit <- lm(Income ~ ns(Education,3) * ns(Seniority,3), data=inc)
 ls_fun <- function(x1, x2, fit=ls_fit) 
   predict(fit, data.frame(Education=x1, Seniority=x2))
 plot_inc_data(ls_fun)
@@ -51,7 +51,7 @@ plot_inc_data(ls_fun)
 ## k-nearest neighbors regression: 'cared::knnreg' function
 
 library('caret')
-knn_fit <- knnreg(Income ~ Education + Seniority, k=10, data=inc)
+knn_fit <- knnreg(Income ~ Education + Seniority, k=30, data=inc)
 knn_fun <- function(x1, x2, fit=knn_fit) 
   predict(fit, data.frame(Education=x1, Seniority=x2))
 plot_inc_data(knn_fun)
@@ -73,13 +73,13 @@ cvknnreg <- function(kNN = 10, flds=inc_flds) {
 }
 
 ## Compute 5-fold CV for kNN, where k = 1:10
-cverrs <- sapply(1:10, cvknnreg)
+cverrs <- sapply(1:20, cvknnreg)
 cverrs_mean <- apply(cverrs, 2, mean)
 cverrs_sd   <- apply(cverrs, 2, sd)
-plot(x=1:10, y=cverrs_mean, 
+plot(x=1:20, y=cverrs_mean, 
      ylim=range(cverrs),
      xlab="'k' in kNN", ylab="CV Estimate of Test Error")
-segments(x0=1:10, x1=1:10,
+segments(x0=1:20, x1=1:20,
          y0=cverrs_mean-cverrs_sd,
          y1=cverrs_mean+cverrs_sd)
 

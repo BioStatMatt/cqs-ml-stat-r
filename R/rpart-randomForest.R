@@ -89,16 +89,19 @@ segments(x0=20:1, x1=20:1,
 
 
 ## Random Forest for Regression
+library('randomForest')
 data(airquality)
 set.seed(131)
 ozone.rf <- randomForest(Ozone ~ ., data=airquality, mtry=3,
                          importance=TRUE, na.action=na.omit)
 print(ozone.rf)
+plot(airquality$Ozone, predict(ozone.rf, na.omit(airquality)))
 ## Show "importance" of variables: higher value mean more important:
 ## For each tree, the prediction error on the out-of-bag portion of
 ## the data is recorded (error rate for classification, MSE for
 ## regression). Then the same is done after permuting each predictor variable.
 ## The difference between the two are then averaged over all trees.
+
 round(importance(ozone.rf), 2)
 varImpPlot(ozone.rf)
 ozone.rf$mse
@@ -131,7 +134,6 @@ cvrf <- function(mtry, flds=dia_flds) {
   }
   return(cverr)
 }
-
 
 ## Compute 5-fold CV for randomForest, mtry = 1:5
 cverrs <- sapply(1:5, cvrf)
