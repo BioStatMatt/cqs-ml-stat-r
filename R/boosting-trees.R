@@ -106,9 +106,10 @@ bc_trn <- BreastCancer[ trn_idx,]
 bc_tst <- BreastCancer[-trn_idx,]
 
 ## fit with 10 iterations AdaBoost.M1
-bc_fit <- adaboost(bc_trn, 10)
+bc_fit <- adaboost(bc_trn, 100)
 mean(bc_fit$G(bc_tst) == bc_tst$y)
 
+library('caret')
 bc_flds <- createFolds(bc_trn$y, k=10)
 cvabm1 <- function(M, dat=bc_trn, flds=bc_flds) {
   err <- rep(NA, length(flds))
