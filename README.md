@@ -61,13 +61,9 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 * Principles of statistical inference 
   * Populations, samples, and sampling biases
   * Statistics and sampling distributions
-  * Confidence intervals and P-values
+  * Confidence intervals
   * Study design and confounding
-  * Model selection and prespecification
-* Regression methods
-  * Linear and generalized linear regression
   * Model assumptions and diagnostics
-  * Multiple degree-of-freedom tests
 * Bootstrap
 
 ## Background and Software Installation
