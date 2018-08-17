@@ -28,12 +28,13 @@ legend('topright', bty='n',
 ## Implement kmeans k=2
 set.seed(4)
 km.out=kmeans(x,3,nstart=20)
-plot(x, col=(km.out$cluster+1),
+plot(x, col='black',
      main="K-Means Clustering Results with K=3",
      xlab="", ylab="", pch=20, cex=2)
 legend('topright', bty='n',
        legend=paste('Total Within SS:',
                     round(km.out$tot.withinss,2)))
+points(x[16,2],x[12,1], col="red")
 
 ## Plot within-cluster variance as function of 'k'
 twss <- sapply(2:10, function(k)
@@ -112,9 +113,9 @@ plot(x, col=cutree(hc.single, 4),
 
 library("ISLR")
 ## labs is cancer type for each cell line (64)
-nci.labs=scale(NCI60$labs)
+nci.labs=NCI60$labs
 ## data is 64 x 6830 expression data
-nci.data=NCI60$data
+nci.data=scale(NCI60$data)
 dim(nci.data)
 nci.labs[1:4]
 table(nci.labs)

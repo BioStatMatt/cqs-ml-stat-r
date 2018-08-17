@@ -91,3 +91,4 @@ plot(cumsum(pca$pve),
      xlab="Principal Component",
      ylab="Cumulative Proportion of Variance Explained",
      ylim=c(0,1),type='b')
+
