@@ -1,8 +1,8 @@
-# Machine Learning and Statistics in R
+# Machine Learning in Data Science
 
-**2018 CQS Summer Short Course: Machine Learning and Statistics in R**
+**2019 CQS Summer Short Course: Machine Learning in Data Science**
 
-This CQS Summer Institute course provides an introduction and overview of the most powerful and common machine learning methods and statistical inference techniques using R (The R Project for Statistical Computing: https://www.r-project.org). Upon completion of this course, participants will be able to select and apply off-the-shelf machine learning and statistical software tools to many different types of analytical tasks. **This course requires some familiarity with R/RStudio and basic math.**
+This CQS Summer Institute course provides an introduction and overview of the most powerful and common machine learning methods, includgin deep learning with neural networks, using R (The R Project for Statistical Computing: https://www.r-project.org). Upon completion of this course, participants will be able to select and apply off-the-shelf machine learning and statistical software tools to many different types of analytical tasks. **This course requires some familiarity with R/RStudio and basic math.**
 
 ## Syllabus
 
@@ -44,9 +44,13 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 * Neural networks
   * Fully connected
   * Convolutional
+
+### Day 4: Supervised Learning Part 3
+
+* Neural networks
   * Deep learning
 
-### Day 4: Unsupervised Learning
+### Day 5: Unsupervised Learning
 
 * Unsupervised learning principles
   * Model selection and parsimony
@@ -55,16 +59,6 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 * Clustering 
   * K-means
   * Hierarchical
-
-### Day 5: Statistical Inference
-
-* Principles of statistical inference 
-  * Populations, samples, and sampling biases
-  * Statistics and sampling distributions
-  * Confidence intervals
-  * Study design and confounding
-  * Model assumptions and diagnostics
-* Bootstrap
 
 ## Background and Software Installation
 
@@ -75,6 +69,8 @@ We will additionally make use of several freely available add-on packages for R,
 ```rstats
 install.packages("reshape2")
 ```
+
+The neural network and deep learning topics will make use of the Keras library for R. Detailed information about getting started with this package is available at https://keras.rstudio.org/
 
 This course is very ``hands on.'' I recommend that participants who are not familiar with R or RStudio work through some of the excellent and free online beginner tutorials for R/RStudio. The following link is a great place to start: 
 https://support.rstudio.com/hc/en-us/articles/201141096-Getting-Started-with-R
