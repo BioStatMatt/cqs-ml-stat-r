@@ -160,6 +160,8 @@ persp(x,y,fa,theta=30,phi=20)
 persp(x,y,fa,theta=30,phi=70)
 persp(x,y,fa,theta=30,phi=40)
 
+R.version
+
 ########################
 ## Introduction to R Lab
 ########################
@@ -196,4 +198,3 @@ persp(x,y,fa,theta=30,phi=40)
 ##    function to add the second histogram to the first for
 ##    for comparison.
 
-R.version

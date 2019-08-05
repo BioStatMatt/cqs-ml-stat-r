@@ -81,3 +81,19 @@ x
 attributes(x)
 exp(x)
 x[1]
+
+## Pipe (binary) operator: %>%
+## pass left hand side as first argument to right hand side
+## can be chained toghether
+## - functional programming style
+## - makes code easier to write and read sometime
+library('dplyr')
+
+## typical 'subset' call
+subset(subset(iris, Species == 'setosa'), Petal.Width > 0.5)
+
+## pipe version
+iris %>% subset(Species == 'setosa') %>% 
+	 subset(Petal.Width > 0.5)
+
+

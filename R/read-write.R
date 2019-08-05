@@ -60,7 +60,7 @@ Auto=read.table(url("http://www-bcf.usc.edu/~gareth/ISL/Auto.data"),
 dim(Auto)
 
 
-## Data from local or remove databases
+## Data from local or remote databases
 ## DBI - R Database Interface
 ## ODBC - Open Database Connectivity
 
