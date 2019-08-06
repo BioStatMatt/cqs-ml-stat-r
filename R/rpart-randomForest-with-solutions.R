@@ -95,6 +95,7 @@ set.seed(131)
 ozone.rf <- randomForest(Ozone ~ ., data=airquality, mtry=3,
                          importance=TRUE, na.action=na.omit)
 print(ozone.rf)
+plot(airquality$Ozone, predict(ozone.rf, airquality))
 
 ## Show "importance" of variables: higher value mean more important:
 ## For each tree, the prediction error on the out-of-bag portion of
