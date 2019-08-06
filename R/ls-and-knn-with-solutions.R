@@ -4,7 +4,7 @@
 
 ## Download income data
 
-inc <- read.csv(url("http://www-bcf.usc.edu/~gareth/ISL/Income2.csv"),
+inc <- read.csv(url("http://faculty.marshall.usc.edu/gareth-james/ISL/Income2.csv"),
                 header=T, row.names = 1)
 
 ## Function to plot income data and regression function ('fun')
