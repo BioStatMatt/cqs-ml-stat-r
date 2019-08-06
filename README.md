@@ -27,14 +27,11 @@ This CQS Summer Institute course provides an introduction and overview of the mo
 ### Day 2: Supervised Learning Part 1
 
 * Supervised learning principles 
-  * Linear regression vs. K-nearest-neighbors
   * Bias/variance trade-off
   * Objective (loss) functions
   * Optimism
   * Cross-validation
-* Regression methods
-  * Modeling associations
-  * Model selection and shrinkage
+* Linear regression vs. K-nearest-neighbors
 * Classification and regression trees 
 * Random forests (bagging)
 
