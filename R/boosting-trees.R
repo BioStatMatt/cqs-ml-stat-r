@@ -155,7 +155,7 @@ mean(pre_tst == bc_tst$y)
 ## 2. Using the income data from previous examples to fit a boosted tree ('gbm') for
 ##    for predicting income, given education and seniority. Be sure to read
 ##    through the help file to make the appropriate modifications.
-inc <- read.csv(url("http://www-bcf.usc.edu/~gareth/ISL/Income2.csv"),
+inc <- read.csv(url("http://faculty.marshall.usc.edu/gareth-james/ISL/Income2.csv"),
                 header=T, row.names = 1)
 
 ## 3. Create a figure using the 'persp' function to display the prediction surface

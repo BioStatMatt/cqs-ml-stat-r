@@ -97,7 +97,7 @@ qds <- quads3d(x1r[c(1,2,2,1)], x2r[c(1,1,2,2)], 0.5, alpha=0.4,
 ## 1. Using the income data from previous examples to fit a neural network for
 ##    for predicting income, given education and seniority. Be sure to read
 ##    through the help file to make the appropriate modifications.
-inc <- read.csv(url("http://www-bcf.usc.edu/~gareth/ISL/Income2.csv"),
+inc <- read.csv(url("http://faculty.marshall.usc.edu/gareth-james/ISL/Income2.csv"),
                 header=T, row.names = 1)
 
 ## 2. Create a figure using the 'persp' function or functions from the 'rgl' 
