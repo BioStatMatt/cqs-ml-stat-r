@@ -2,6 +2,8 @@
 ## Keras MNIST Zipcode Classification
 #####################################
 
+## This code is based on https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/
+
 library(keras)
 
 ## MNIST images have shape (28 height, 28 width, 1 channels)

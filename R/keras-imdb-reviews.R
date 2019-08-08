@@ -2,7 +2,7 @@
 ## Keras IMDB Review Classification
 ###################################
 
-## This code is based on https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/3.4-classifying-movie-reviews.Rmd
+## This code is based on https://github.com/jjallaire/deep-learning-with-r-notebooks/blob/master/notebooks/
 
 library(keras)
 
