@@ -1,0 +1,18 @@
+The comments below are from Ed Marx, who was able to overcome the difficulty of installing Keras on Windows.
+
+1. I was taught to install packages using the Tools -> Install packages. That, for some reason, isn’t working properly. I then just typed install.packages() in the command line and it worked (that was for another package but had someone watch and after using the interface 3 times I typed the command line and it worked fine. The interface says it was installed but any call to the library gave an error.
+
+1. I had a ton of trouble with tensorflow. I searched a ton and found this on github with others having the same issue. fixed tensorflow issue with the following: https://github.com/rstudio/keras/issues/649 and look at skeydan comment on Feb 6:
+ 
+
+If you still have problems using install_tensorflow() from RStudio, please try the following.
+
+First install tensorflow directly from GitHub, as in
+
+devtools::install_github("rstudio/tensorflow")
+devtools::install_github("rstudio/keras")
+
+Then do
+
+tensorflow::install_tensorflow()
+tensorflow::tf_config()
