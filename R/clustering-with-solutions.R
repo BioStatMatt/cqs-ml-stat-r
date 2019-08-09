@@ -111,6 +111,58 @@ plot(x, col=cutree(hc.single, 4),
 ##    to make four clusters. Explore how this PCA dimensionality reduction affects
 ##    how the four clusters of cell lines group by cancer type.
 
+library("ISLR")
+## labs is cancer type for each cell line (64)
+nci.labs=NCI60$labs
+## data is 64 x 6830 expression data
+nci.data=scale(NCI60$data)
+dim(nci.data)
+nci.labs[1:4]
+table(nci.labs)
+
+## PCA on the NCI60 Data
+pca = prcomp(nci.data, scale=TRUE)
+## compute variance
+pca$var <- pca$sdev^2
+## compute proportion variabilit explained
+pca$pve <- pca$var/sum(pca$var)
+pca$pve
+par(mfrow=c(1,2))
+plot(pca$pve,
+     xlab="Principal Component",
+     ylab="Proportion of Variance Explained",
+     type='b')
+plot(cumsum(pca$pve),
+     xlab="Principal Component",
+     ylab="Cumulative Proportion of Variance Explained",
+     ylim=c(0,1),type='b')
+
+## How many PCs needed to get to 80%, 90%, and 95% PVE?
+match(T, cumsum(pca$pve) > 0.8)
+match(T, cumsum(pca$pve) > 0.9)
+match(T, cumsum(pca$pve) > 0.95)
+
+## Clustering the Observations of the first 32 PC scores (80% PVE)
+nci.data.z <- pca$x[,1:32]
+## Show how clustering groups cell lines by cancer type
+km.out=kmeans(nci.data.z, 4)
+km.clusters=km.out$cluster
+table(km.clusters,nci.labs)
+
+## Clustering the Observations of the first 44 PC scores (80% PVE)
+nci.data.z <- pca$x[,1:44]
+## Show how clustering groups cell lines by cancer type
+km.out=kmeans(nci.data.z, 4)
+km.clusters=km.out$cluster
+table(km.clusters,nci.labs)
+
+## Clustering the Observations of the first 51 PC scores (80% PVE)
+nci.data.z <- pca$x[,1:51]
+## Show how clustering groups cell lines by cancer type
+km.out=kmeans(nci.data.z, 4)
+km.clusters=km.out$cluster
+table(km.clusters,nci.labs)
+
 ##############################
 ## Hierarchical Clustering Lab
 ##############################
@@ -121,8 +173,34 @@ plot(x, col=cutree(hc.single, 4),
 ##    PCA dimensionality reduction affects how the four clusters of cell lines
 ##    group by cancer type.
 
+## Clustering the Observations of the first 32 PC scores (80% PVE)
+nci.data.z <- pca$x[,1:32]
+## Show how clustering groups cell lines by cancer type
+hc.out=hclust(dist(nci.data.z))
+hc.clusters=cutree(hc.out,4)
+table(hc.clusters,nci.labs)
+
+## Clustering the Observations of the first 44 PC scores (90% PVE)
+nci.data.z <- pca$x[,1:44]
+## Show how clustering groups cell lines by cancer type
+hc.out=hclust(dist(nci.data.z))
+hc.clusters=cutree(hc.out,4)
+table(hc.clusters,nci.labs)
+
+## Clustering the Observations of the first 51 PC scores (95% PVE)
+nci.data.z <- pca$x[,1:51]
+## Show how clustering groups cell lines by cancer type
+hc.out=hclust(dist(nci.data.z))
+hc.clusters=cutree(hc.out,4)
+table(hc.clusters,nci.labs)
+
+
 ## 2. Plot a heatmap of the expression data, but instead of raw expression use
 ##    the 64 PCA scores. Use the 'heatmap' function. Rename the rows using the 
 ##    cancer type. Use the 'hclustfun' argument to change the linkage used 
 ##    to do hierarchical clustering (and create dendrogams for the figure).
 
+rownames(nci.data.z) <- nci.labs
+heatmap(nci.data.z)
+heatmap(nci.data.z, hclustfun=function(x) hclust(x, method='average'))
+heatmap(nci.data.z, hclustfun=function(x) hclust(x, method='single'))
